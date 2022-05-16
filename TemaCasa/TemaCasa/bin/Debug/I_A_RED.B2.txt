@@ -1,0 +1,6 @@
+Matrix Q = [y(n-1) y(n-2) ... y(0)] : 
+
+508 1 
+-338 0 
+Solve ecuation! The roots q1, q2,.., qn are... -35 34 
+The polynomial is lambda ^ 2 + -35 * lambda ^ 1 + 34
