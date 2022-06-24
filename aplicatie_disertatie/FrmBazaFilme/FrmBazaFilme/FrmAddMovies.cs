@@ -20,7 +20,7 @@ namespace FrmBazaFilme
 
         private void bAddMovie_Click(object sender, EventArgs e)
         {
-            DataTable t = Global.ds.Tables["Movies"];
+            DataTable t = Global.Ds.Tables["Movies"];
 
             DataRow r = t.NewRow();
             r["MovieID"] = tbMovieID.Text;
@@ -38,12 +38,13 @@ namespace FrmBazaFilme
                 tbMovieID.Text + "','" + tbTitle.Text + "','" + gbGenre.Text + "','" + cbCountry.Text +
                 "','" +dtpYear.Value.Year + "','" + nupdDuration.Value + "','" + tbEarnings.Value + "')";
 
-            SqlCommand cmd = new SqlCommand(strInsert, Global.con);
+            SqlCommand cmd = new SqlCommand(strInsert, Global.Con);
 
-            //folosire SqlDataAdapter
-            Global.daMovies.InsertCommand = cmd;
-            Global.daMovies.Update(t);
-            Global.ds.AcceptChanges();
+            //using SqlDataAdapter
+            Global.DaMovies.InsertCommand = cmd;
+            Global.DaMovies.Update(t);
+            Global.Ds.AcceptChanges();
+            Close();
         }
 
         private void tbEarnings_Scroll(object sender, EventArgs e)

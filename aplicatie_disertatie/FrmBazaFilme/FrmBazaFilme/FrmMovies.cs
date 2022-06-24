@@ -21,19 +21,14 @@ namespace FrmBazaFilme
         }
         private void FrmMovies_Load(object sender, EventArgs e)
         {
-            dgvMovies.DataSource = Global.ds;
+            dgvMovies.DataSource = Global.Ds;
             dgvMovies.DataMember = "Movies";
 
-            dgvDetalii.DataSource = Global.ds;
+            dgvDetalii.DataSource = Global.Ds;
             dgvDetalii.DataMember = "Detalii";
             moviesData = new string[7];
         }
         
-        private void dgvRemovedMovies_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void bAddMovies_Click(object sender, EventArgs e)
         {
             FrmAddMovies f = new FrmAddMovies();
@@ -48,7 +43,6 @@ namespace FrmBazaFilme
 
         private void dgvMovies_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //MovieID = dgvMovies.Rows[e.RowIndex].Cells[0].Value.ToString();
             var inputData = dgvMovies.SelectedRows[0].Cells;
             var outputData = inputData;
             var output = (DataGridViewCellCollection) inputData;
@@ -81,44 +75,34 @@ namespace FrmBazaFilme
             }
 
 
-            Global.con.Open();
-            DataTable t = Global.ds.Tables["Movies"];
-            SqlCommand cmd2 = new SqlCommand("delete tMovies where MovieID=@MovieID", Global.con);
+            Global.Con.Open();
+            DataTable t = Global.Ds.Tables["Movies"];
+            SqlCommand cmd2 = new SqlCommand("delete tMovies where MovieID=@MovieID", Global.Con);
             cmd2.Parameters.AddWithValue("@MovieID", moviesData[0]);
             cmd2.ExecuteNonQuery();
 
             //folosire SqlDataAdapter
-            Global.daMovies.DeleteCommand = cmd2;
-            Global.daMovies.Update(t);
-            Global.ds.AcceptChanges();
+            Global.DaMovies.DeleteCommand = cmd2;
+            Global.DaMovies.Update(t);
+            Global.Ds.AcceptChanges();
 
-            Global.daMovies = new SqlDataAdapter("select * from tMovies", Global.con);
-            Global.daMovies.Fill(Global.ds, "Movies");
+            Global.Con = new SqlConnection(Global.StringConnect);
 
-            Global.con = new SqlConnection(Global.stringConectare);
+            Global.Con.Open();
+            Global.Ds = new DataSet();
+            Global.DaMovies = new SqlDataAdapter("select * from tMovies", Global.Con);
+            Global.DaMovies.Fill(Global.Ds, "Movies");
 
-            Global.con.Open();
-            Global.ds = new DataSet();
-            Global.daMovies = new SqlDataAdapter("select * from tMovies", Global.con);
-            Global.daMovies.Fill(Global.ds, "Movies");
+            Global.DaView = new SqlDataAdapter("select * from dbo.vDetalii", Global.Con);
+            Global.DaView.Fill(Global.Ds, "Detalii");
 
-            Global.daActors = new SqlDataAdapter("select * from tActors", Global.con);
-            Global.daActors.Fill(Global.ds, "Actors");
+            Global.Con.Close();
 
-            Global.daDirectors = new SqlDataAdapter("select * from tDirectors", Global.con);
-            Global.daDirectors.Fill(Global.ds, "Directors");
-
-            Global.daView = new SqlDataAdapter("select * from dbo.vDetalii", Global.con);
-            Global.daView.Fill(Global.ds, "Detalii");
-
-            Global.con.Close();
-
-            dgvMovies.DataSource = Global.ds;
+            dgvMovies.DataSource = Global.Ds;
             dgvMovies.DataMember = "Movies";
 
-            dgvDetalii.DataSource = Global.ds;
+            dgvDetalii.DataSource = Global.Ds;
             dgvDetalii.DataMember = "Detalii";
-
 
         }
     }

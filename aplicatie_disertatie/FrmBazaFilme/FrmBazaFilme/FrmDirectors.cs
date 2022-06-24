@@ -24,7 +24,7 @@ namespace FrmBazaFilme
 
         private void FrmDirectors_Load(object sender, EventArgs e)
         {
-            dgvDirectors.DataSource = Global.ds;
+            dgvDirectors.DataSource = Global.Ds;
             dgvDirectors.DataMember = "Directors";
         }
     }

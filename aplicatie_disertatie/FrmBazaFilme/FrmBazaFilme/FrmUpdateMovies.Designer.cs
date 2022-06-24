@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUpdateMovies));
             this.utbEarn = new System.Windows.Forms.TextBox();
             this.lbProgressBar = new System.Windows.Forms.Label();
             this.upbSuccess = new System.Windows.Forms.ProgressBar();
@@ -68,7 +69,7 @@
             // lbProgressBar
             // 
             this.lbProgressBar.AutoSize = true;
-            this.lbProgressBar.Location = new System.Drawing.Point(426, 277);
+            this.lbProgressBar.Location = new System.Drawing.Point(528, 268);
             this.lbProgressBar.Name = "lbProgressBar";
             this.lbProgressBar.Size = new System.Drawing.Size(154, 17);
             this.lbProgressBar.TabIndex = 34;
@@ -76,7 +77,7 @@
             // 
             // upbSuccess
             // 
-            this.upbSuccess.Location = new System.Drawing.Point(429, 312);
+            this.upbSuccess.Location = new System.Drawing.Point(502, 302);
             this.upbSuccess.Name = "upbSuccess";
             this.upbSuccess.Size = new System.Drawing.Size(243, 23);
             this.upbSuccess.TabIndex = 33;
@@ -127,7 +128,7 @@
             // 
             // bUpdateMovie
             // 
-            this.bUpdateMovie.Location = new System.Drawing.Point(297, 361);
+            this.bUpdateMovie.Location = new System.Drawing.Point(372, 373);
             this.bUpdateMovie.Name = "bUpdateMovie";
             this.bUpdateMovie.Size = new System.Drawing.Size(125, 52);
             this.bUpdateMovie.TabIndex = 29;
@@ -159,7 +160,7 @@
             this.ugbGenre.Controls.Add(this.urbComedy);
             this.ugbGenre.Controls.Add(this.urbRomance);
             this.ugbGenre.Controls.Add(this.urbFantasy);
-            this.ugbGenre.Location = new System.Drawing.Point(429, 37);
+            this.ugbGenre.Location = new System.Drawing.Point(502, 37);
             this.ugbGenre.Name = "ugbGenre";
             this.ugbGenre.Size = new System.Drawing.Size(295, 190);
             this.ugbGenre.TabIndex = 27;
@@ -326,7 +327,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(882, 453);
             this.Controls.Add(this.utbEarn);
             this.Controls.Add(this.lbProgressBar);
             this.Controls.Add(this.upbSuccess);
@@ -344,6 +345,7 @@
             this.Controls.Add(this.lbCountry);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.lbMovieID);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmUpdateMovies";
             this.Text = "MovieBase/UpdateMovie";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmUpdateMovies_FormClosing);

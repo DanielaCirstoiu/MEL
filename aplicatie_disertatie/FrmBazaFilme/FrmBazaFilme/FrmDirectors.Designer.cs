@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDirectors));
             this.bDeleteDirectors = new System.Windows.Forms.Button();
             this.dgvDirectors = new System.Windows.Forms.DataGridView();
             this.bUpdateDirectors = new System.Windows.Forms.Button();
@@ -47,10 +48,10 @@
             // dgvDirectors
             // 
             this.dgvDirectors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDirectors.Location = new System.Drawing.Point(12, 181);
+            this.dgvDirectors.Location = new System.Drawing.Point(51, 205);
             this.dgvDirectors.Name = "dgvDirectors";
             this.dgvDirectors.RowTemplate.Height = 24;
-            this.dgvDirectors.Size = new System.Drawing.Size(776, 240);
+            this.dgvDirectors.Size = new System.Drawing.Size(900, 400);
             this.dgvDirectors.TabIndex = 7;
             this.dgvDirectors.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDirectors_CellContentClick);
             // 
@@ -77,11 +78,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FrmBazaFilme.Properties.Resources.images__1_;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1182, 653);
             this.Controls.Add(this.bDeleteDirectors);
             this.Controls.Add(this.dgvDirectors);
             this.Controls.Add(this.bUpdateDirectors);
             this.Controls.Add(this.bAddDirectors);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDirectors";
             this.Text = "MovieBase/Directors";
             this.Load += new System.EventHandler(this.FrmDirectors_Load);

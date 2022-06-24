@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmActors));
             this.bDeleteActor = new System.Windows.Forms.Button();
             this.dgvActors = new System.Windows.Forms.DataGridView();
             this.bUpdateActor = new System.Windows.Forms.Button();
@@ -47,10 +48,10 @@
             // dgvActors
             // 
             this.dgvActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvActors.Location = new System.Drawing.Point(32, 181);
+            this.dgvActors.Location = new System.Drawing.Point(54, 204);
             this.dgvActors.Name = "dgvActors";
             this.dgvActors.RowTemplate.Height = 24;
-            this.dgvActors.Size = new System.Drawing.Size(740, 245);
+            this.dgvActors.Size = new System.Drawing.Size(900, 400);
             this.dgvActors.TabIndex = 7;
             // 
             // bUpdateActor
@@ -76,11 +77,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FrmBazaFilme.Properties.Resources.download;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1182, 653);
             this.Controls.Add(this.bDeleteActor);
             this.Controls.Add(this.dgvActors);
             this.Controls.Add(this.bUpdateActor);
             this.Controls.Add(this.bAddActors);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmActors";
             this.Text = "MovieBase/Actors";
             this.Load += new System.EventHandler(this.FrmActors_Load);

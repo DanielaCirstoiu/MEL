@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddMovies));
             this.lbMovieID = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
             this.lbCountry = new System.Windows.Forms.Label();
@@ -136,7 +137,7 @@
             this.gbGenre.Controls.Add(this.rbComedy);
             this.gbGenre.Controls.Add(this.rbRomance);
             this.gbGenre.Controls.Add(this.rbFantasy);
-            this.gbGenre.Location = new System.Drawing.Point(393, 38);
+            this.gbGenre.Location = new System.Drawing.Point(487, 61);
             this.gbGenre.Name = "gbGenre";
             this.gbGenre.Size = new System.Drawing.Size(295, 190);
             this.gbGenre.TabIndex = 9;
@@ -247,7 +248,7 @@
             // 
             // bAddMovie
             // 
-            this.bAddMovie.Location = new System.Drawing.Point(261, 362);
+            this.bAddMovie.Location = new System.Drawing.Point(345, 376);
             this.bAddMovie.Name = "bAddMovie";
             this.bAddMovie.Size = new System.Drawing.Size(125, 52);
             this.bAddMovie.TabIndex = 11;
@@ -301,7 +302,7 @@
             // 
             // pbSuccess
             // 
-            this.pbSuccess.Location = new System.Drawing.Point(393, 313);
+            this.pbSuccess.Location = new System.Drawing.Point(487, 323);
             this.pbSuccess.Name = "pbSuccess";
             this.pbSuccess.Size = new System.Drawing.Size(243, 23);
             this.pbSuccess.TabIndex = 16;
@@ -309,7 +310,7 @@
             // lbProgressBar
             // 
             this.lbProgressBar.AutoSize = true;
-            this.lbProgressBar.Location = new System.Drawing.Point(390, 278);
+            this.lbProgressBar.Location = new System.Drawing.Point(513, 282);
             this.lbProgressBar.Name = "lbProgressBar";
             this.lbProgressBar.Size = new System.Drawing.Size(154, 17);
             this.lbProgressBar.TabIndex = 17;
@@ -326,7 +327,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(882, 453);
             this.Controls.Add(this.tbEarn);
             this.Controls.Add(this.lbProgressBar);
             this.Controls.Add(this.pbSuccess);
@@ -344,6 +345,7 @@
             this.Controls.Add(this.lbCountry);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.lbMovieID);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAddMovies";
             this.Text = "MovieBase/AddNewMovie";
             this.gbGenre.ResumeLayout(false);

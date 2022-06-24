@@ -10,17 +10,15 @@ namespace FrmBazaFilme
 {
     static class Global
     {
-        public static string stringConectare = @"Data Source=N022057\SQLEXPRESS;Initial Catalog=DBMovies;Integrated Security=True;";
+        public static string StringConnect = @"Data Source=N022057\SQLEXPRESS;"+
+                                               "Initial Catalog=DBMovies;Integrated Security=True;";
 
-        public static SqlConnection con;
-        public static DataSet ds;
-        public static SqlDataAdapter daMovies;
-        public static SqlDataAdapter daActors;
-        public static SqlDataAdapter daDirectors;
-        public static SqlDataAdapter daView;
-
-
-
+        public static SqlConnection Con;
+        public static DataSet Ds;
+        public static SqlDataAdapter DaMovies;
+        public static SqlDataAdapter DaActors;
+        public static SqlDataAdapter DaDirectors;
+        public static SqlDataAdapter DaView;
     }
     static class Program
     {

@@ -20,22 +20,22 @@ namespace FrmBazaFilme
 
         private void FrmMoviesB_Load(object sender, EventArgs e)
         {
-            Global.con = new SqlConnection(Global.stringConectare);
-            Global.con.Open();
-            Global.ds = new DataSet();
-            Global.daMovies = new SqlDataAdapter("select * from tMovies", Global.con);
-            Global.daMovies.Fill(Global.ds, "Movies");
+            Global.Con = new SqlConnection(Global.StringConnect);
+            Global.Con.Open();
+            Global.Ds = new DataSet();
+            Global.DaMovies = new SqlDataAdapter("select * from tMovies", Global.Con);
+            Global.DaMovies.Fill(Global.Ds, "Movies");
 
-            Global.daActors = new SqlDataAdapter("select * from tActors", Global.con);
-            Global.daActors.Fill(Global.ds, "Actors");
+            Global.DaActors = new SqlDataAdapter("select * from tActors", Global.Con);
+            Global.DaActors.Fill(Global.Ds, "Actors");
 
-            Global.daDirectors = new SqlDataAdapter("select * from tDirectors", Global.con);
-            Global.daDirectors.Fill(Global.ds, "Directors");
+            Global.DaDirectors = new SqlDataAdapter("select * from tDirectors", Global.Con);
+            Global.DaDirectors.Fill(Global.Ds, "Directors");
 
-            Global.daView = new SqlDataAdapter("select * from dbo.vDetalii", Global.con);
-            Global.daView.Fill(Global.ds, "Detalii");
+            Global.DaView = new SqlDataAdapter("select * from dbo.vDetalii", Global.Con);
+            Global.DaView.Fill(Global.Ds, "Detalii");
 
-            Global.con.Close();
+            Global.Con.Close();
         }
 
         private void bMovies_Click(object sender, EventArgs e)

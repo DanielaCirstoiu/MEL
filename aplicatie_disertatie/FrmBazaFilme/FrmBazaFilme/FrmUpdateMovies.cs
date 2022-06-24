@@ -50,46 +50,45 @@ namespace FrmBazaFilme
 
         private void bUpdateMovie_Click(object sender, EventArgs e)
         {
-            Global.con.Open();
-            DataTable t = Global.ds.Tables["Movies"];
-            SqlCommand cmd2 = new SqlCommand("update tMovies set MovieID=@MovieID, Title=@Title, Genre=@Genre, Country=@Country, Year=@Year, " +
-                                             "Duration=@Duration, MilEarnings=@MilEarnings where MovieID=@MovieID", Global.con);
+            Global.Con.Open();
+            DataTable t = Global.Ds.Tables["Movies"];
+            SqlCommand cmd2 = new SqlCommand("Update tMovies Set MovieID=@MovieID, Title=@Title, Genre=@Genre, Country=@Country, " +
+                                             "Year=@Year, Duration=@Duration, MilEarnings=@MilEarnings where MovieID=@MovieID", Global.Con);
             cmd2.Parameters.AddWithValue("@MovieID", utbMovieID.Text);
             cmd2.Parameters.AddWithValue("@Title", utbTitle.Text);
-            var text = ugbGenre.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Text;
-            cmd2.Parameters.AddWithValue("@Genre", text);
+            if (ugbGenre != null)
+            {
+                var text = ugbGenre.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Text;
+                cmd2.Parameters.AddWithValue("@Genre", text);
+            }
+
             cmd2.Parameters.AddWithValue("@Country", ucbCountry.Text);
             cmd2.Parameters.AddWithValue("@Year", udtpYear.Text);
             cmd2.Parameters.AddWithValue("@Duration", unupdDuration.Text);
             cmd2.Parameters.AddWithValue("@MilEarnings", utbEarn.Text);
             cmd2.ExecuteNonQuery();
-            
-            //folosire SqlDataAdapter
-            Global.daMovies.InsertCommand = cmd2;
-            Global.daMovies.Update(t);
-            Global.ds.AcceptChanges();
 
-            Global.daMovies = new SqlDataAdapter("select * from tMovies", Global.con);
-            Global.daMovies.Fill(Global.ds, "Movies");
+            //using SqlDataAdapter
+            Global.DaMovies.UpdateCommand = cmd2;
+            Global.DaMovies.Update(t);
+            Global.Ds.AcceptChanges();
 
-            Global.con = new SqlConnection(Global.stringConectare);
+            //Global.DaMovies = new SqlDataAdapter("select * from tMovies", Global.Con);
+            //Global.DaMovies.Fill(Global.Ds, "Movies");
 
-            Global.con.Open();
-            Global.ds = new DataSet();
-            Global.daMovies = new SqlDataAdapter("select * from tMovies", Global.con);
-            Global.daMovies.Fill(Global.ds, "Movies");
+            //Global.Con = new SqlConnection(Global.StringConnect);
 
-            Global.daActors = new SqlDataAdapter("select * from tActors", Global.con);
-            Global.daActors.Fill(Global.ds, "Actors");
+            //Global.Con.Open();
+            //Global.Ds = new DataSet();
+            //Global.DaMovies = new SqlDataAdapter("select * from tMovies", Global.Con);
+            //Global.DaMovies.Fill(Global.Ds, "Movies");
 
-            Global.daDirectors = new SqlDataAdapter("select * from tDirectors", Global.con);
-            Global.daDirectors.Fill(Global.ds, "Directors");
+            //Global.DaView = new SqlDataAdapter("select * from dbo.vDetalii", Global.Con);
+            //Global.DaView.Fill(Global.Ds, "Detalii");
 
-            Global.daView = new SqlDataAdapter("select * from dbo.vDetalii", Global.con);
-            Global.daView.Fill(Global.ds, "Detalii");
+            //Global.Con.Close();
 
-            Global.con.Close();
-
+            Close();
         }
         private void utbEarnings_Scroll(object sender, EventArgs e)
         {
@@ -100,11 +99,12 @@ namespace FrmBazaFilme
 
         private void FrmUpdateMovies_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _moviesView.DataSource = Global.ds;
-            _moviesView.DataMember = "Movies";
+            //_moviesView.DataSource = Global.Ds;
+            //_moviesView.DataMember = "Movies";
 
-            _moviesView.DataSource = Global.ds;
-            _moviesView.DataMember = "Detalii";
+            //_moviesView.DataSource = Global.Ds;
+            //_moviesView.DataMember = "Detalii";
+
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMovies));
             this.bAddMovies = new System.Windows.Forms.Button();
             this.dgvMovies = new System.Windows.Forms.DataGridView();
             this.dgvDetalii = new System.Windows.Forms.DataGridView();
@@ -54,19 +55,18 @@
             this.dgvMovies.Location = new System.Drawing.Point(8, 128);
             this.dgvMovies.Name = "dgvMovies";
             this.dgvMovies.RowTemplate.Height = 24;
-            this.dgvMovies.Size = new System.Drawing.Size(1024, 165);
+            this.dgvMovies.Size = new System.Drawing.Size(1026, 262);
             this.dgvMovies.TabIndex = 2;
             this.dgvMovies.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMovies_RowHeaderMouseClick);
             // 
             // dgvDetalii
             // 
             this.dgvDetalii.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalii.Location = new System.Drawing.Point(12, 350);
+            this.dgvDetalii.Location = new System.Drawing.Point(8, 463);
             this.dgvDetalii.Name = "dgvDetalii";
             this.dgvDetalii.RowTemplate.Height = 24;
-            this.dgvDetalii.Size = new System.Drawing.Size(1134, 150);
+            this.dgvDetalii.Size = new System.Drawing.Size(1156, 264);
             this.dgvDetalii.TabIndex = 3;
-            this.dgvDetalii.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRemovedMovies_CellContentClick);
             // 
             // bDeleteMovie
             // 
@@ -81,7 +81,7 @@
             // lbDetalii
             // 
             this.lbDetalii.AutoSize = true;
-            this.lbDetalii.Location = new System.Drawing.Point(65, 316);
+            this.lbDetalii.Location = new System.Drawing.Point(65, 443);
             this.lbDetalii.Name = "lbDetalii";
             this.lbDetalii.Size = new System.Drawing.Size(65, 17);
             this.lbDetalii.TabIndex = 5;
@@ -102,13 +102,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FrmBazaFilme.Properties.Resources.imageMain;
-            this.ClientSize = new System.Drawing.Size(1158, 530);
+            this.ClientSize = new System.Drawing.Size(1232, 753);
             this.Controls.Add(this.bUpdateMovie);
             this.Controls.Add(this.lbDetalii);
             this.Controls.Add(this.bDeleteMovie);
             this.Controls.Add(this.dgvDetalii);
             this.Controls.Add(this.dgvMovies);
             this.Controls.Add(this.bAddMovies);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMovies";
             this.Text = "MovieBase/Movies";
             this.Load += new System.EventHandler(this.FrmMovies_Load);

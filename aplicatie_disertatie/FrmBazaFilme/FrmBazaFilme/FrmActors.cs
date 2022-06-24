@@ -19,7 +19,7 @@ namespace FrmBazaFilme
 
         private void FrmActors_Load(object sender, EventArgs e)
         {
-            dgvActors.DataSource = Global.ds;
+            dgvActors.DataSource = Global.Ds;
             dgvActors.DataMember = "Actors";
         }
     }
