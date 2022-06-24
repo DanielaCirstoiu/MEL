@@ -24,8 +24,11 @@ namespace FrmBazaFilme
 
             DataRow r = t.NewRow();
             r["MovieID"] = tbMovieID.Text;
+            var button = gbGenre.Controls.OfType<RadioButton>()
+                .FirstOrDefault(n => n.Checked);
             r["Title"] = tbTitle.Text;
-            r["Genre"] = gbGenre.Text;
+            if (button != null)
+                r["Genre"] = button.Text;
             r["Country"] = cbCountry.Text;
             r["Year"] = dtpYear.Value.Year;
             r["Duration"] = nupdDuration.Value;

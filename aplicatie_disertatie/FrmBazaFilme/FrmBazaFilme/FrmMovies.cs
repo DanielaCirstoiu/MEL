@@ -74,7 +74,6 @@ namespace FrmBazaFilme
                 }
             }
 
-
             Global.Con.Open();
             DataTable t = Global.Ds.Tables["Movies"];
             SqlCommand cmd2 = new SqlCommand("delete tMovies where MovieID=@MovieID", Global.Con);
@@ -85,10 +84,7 @@ namespace FrmBazaFilme
             Global.DaMovies.DeleteCommand = cmd2;
             Global.DaMovies.Update(t);
             Global.Ds.AcceptChanges();
-
-            Global.Con = new SqlConnection(Global.StringConnect);
-
-            Global.Con.Open();
+            
             Global.Ds = new DataSet();
             Global.DaMovies = new SqlDataAdapter("select * from tMovies", Global.Con);
             Global.DaMovies.Fill(Global.Ds, "Movies");

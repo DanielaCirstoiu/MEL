@@ -76,17 +76,14 @@ namespace FrmBazaFilme
             //Global.DaMovies = new SqlDataAdapter("select * from tMovies", Global.Con);
             //Global.DaMovies.Fill(Global.Ds, "Movies");
 
-            //Global.Con = new SqlConnection(Global.StringConnect);
+            Global.Ds = new DataSet();
+            Global.DaMovies = new SqlDataAdapter("select * from tMovies", Global.Con);
+            Global.DaMovies.Fill(Global.Ds, "Movies");
 
-            //Global.Con.Open();
-            //Global.Ds = new DataSet();
-            //Global.DaMovies = new SqlDataAdapter("select * from tMovies", Global.Con);
-            //Global.DaMovies.Fill(Global.Ds, "Movies");
+            Global.DaView = new SqlDataAdapter("select * from dbo.vDetalii", Global.Con);
+            Global.DaView.Fill(Global.Ds, "Detalii");
 
-            //Global.DaView = new SqlDataAdapter("select * from dbo.vDetalii", Global.Con);
-            //Global.DaView.Fill(Global.Ds, "Detalii");
-
-            //Global.Con.Close();
+            Global.Con.Close();
 
             Close();
         }
