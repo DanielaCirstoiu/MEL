@@ -24,22 +24,22 @@ namespace FrmBazaFilme
 
             DataRow r = t.NewRow();
             r["MovieID"] = tbMovieID.Text;
-            var button = gbGenre.Controls.OfType<RadioButton>()
+            var rbutton = gbGenre.Controls.OfType<RadioButton>()
                 .FirstOrDefault(n => n.Checked);
             r["Title"] = tbTitle.Text;
-            if (button != null)
-                r["Genre"] = button.Text;
+            if (rbutton != null)
+                r["Genre"] = rbutton.Text;
             r["Country"] = cbCountry.Text;
             r["Year"] = dtpYear.Value.Year;
             r["Duration"] = nupdDuration.Value;
-            r["MilEarnings"] = tbEarnings.Value;
+            r["MilEarnings"] = int.Parse(tbEarn.Text);
 
             t.Rows.Add(r);
 
             string strInsert = "insert into tMovies(MovieID, Title, Genre, Country, Year, " +
                 "Duration, MilEarnings) values ('" +
-                tbMovieID.Text + "','" + tbTitle.Text + "','" + gbGenre.Text + "','" + cbCountry.Text +
-                "','" +dtpYear.Value.Year + "','" + nupdDuration.Value + "','" + tbEarnings.Value + "')";
+                tbMovieID.Text + "','" + tbTitle.Text + "','" + rbutton.Text + "','" + cbCountry.Text +
+                "','" +dtpYear.Value.Year + "','" + nupdDuration.Value + "','" + int.Parse(tbEarn.Text) + "')";
 
             SqlCommand cmd = new SqlCommand(strInsert, Global.Con);
 
@@ -56,6 +56,6 @@ namespace FrmBazaFilme
             tbEarn.Text = tbEarnings.Value.ToString();
             pbSuccess.Value = tbEarnings.Value * 100 / 1500;
         }
-
+        
     }
 }

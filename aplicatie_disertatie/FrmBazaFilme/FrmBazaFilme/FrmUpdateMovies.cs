@@ -58,8 +58,9 @@ namespace FrmBazaFilme
             cmd2.Parameters.AddWithValue("@Title", utbTitle.Text);
             if (ugbGenre != null)
             {
-                var text = ugbGenre.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Text;
-                cmd2.Parameters.AddWithValue("@Genre", text);
+                //var text = ugbGenre.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Text;
+                var rbutton = ugbGenre.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked);
+                cmd2.Parameters.AddWithValue("@Genre", rbutton.Text);
             }
 
             cmd2.Parameters.AddWithValue("@Country", ucbCountry.Text);
@@ -72,16 +73,18 @@ namespace FrmBazaFilme
             Global.DaMovies.UpdateCommand = cmd2;
             Global.DaMovies.Update(t);
             Global.Ds.AcceptChanges();
+            //Global.DaMovies.FillLoadOption = LoadOption.PreserveChanges;
+            //Global.DaMovies.Fill(Global.Ds);
 
             //Global.DaMovies = new SqlDataAdapter("select * from tMovies", Global.Con);
             //Global.DaMovies.Fill(Global.Ds, "Movies");
 
-            Global.Ds = new DataSet();
-            Global.DaMovies = new SqlDataAdapter("select * from tMovies", Global.Con);
-            Global.DaMovies.Fill(Global.Ds, "Movies");
+            //Global.Ds = new DataSet();
+            //Global.DaMovies = new SqlDataAdapter("select * from tMovies", Global.Con);
+            //Global.DaMovies.Fill(Global.Ds, "Movies");
 
-            Global.DaView = new SqlDataAdapter("select * from dbo.vDetalii", Global.Con);
-            Global.DaView.Fill(Global.Ds, "Detalii");
+            //Global.DaView = new SqlDataAdapter("select * from dbo.vDetalii", Global.Con);
+            //Global.DaView.Fill(Global.Ds, "Detalii");
 
             Global.Con.Close();
 
